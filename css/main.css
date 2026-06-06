@@ -1,0 +1,314 @@
+/* CSS variables for Valora Bags design system */
+:root {
+  --color-burgundy: #540c18;
+  --color-wine: #39040b;
+  --color-rich-burgundy: #6f3b42;
+  --color-rose: #d3a7ac;
+  --color-cream: #fbebea;
+  --color-gold: #c9a24a;
+  --color-gold-dark: #b89139;
+  
+  --color-white: #ffffff;
+  --color-black: #1a1a1a;
+  --color-gray-100: #f7f7f7;
+  --color-gray-200: #ececec;
+  --color-gray-300: #e0e0e0;
+  --color-gray-500: #888888;
+  --color-gray-700: #4a4a4a;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Jost', 'Inter', system-ui, -apple-system, sans-serif;
+  
+  /* Typography Scale */
+  --font-size-xs: 0.75rem;    /* 12px - Captions, tags */
+  --font-size-sm: 0.875rem;   /* 14px - UI text, labels */
+  --font-size-base: 1rem;     /* 16px - Body text */
+  --font-size-md: 1.1rem;     /* 17.6px - Product titles, subtitles */
+  --font-size-lg: 1.25rem;    /* 20px - Spec headers, small titles */
+  --font-size-xl: 1.5rem;     /* 24px - Section headers */
+  --font-size-2xl: 2.2rem;    /* 35.2px - Page subheadings */
+  --font-size-3xl: 2.8rem;    /* 44.8px - Main headings */
+  --font-size-4xl: 4rem;      /* 64px - Hero display titles */
+
+  /* Spacing Scale */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 80px;
+  --space-5xl: 100px;
+  
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 8px 24px rgba(84, 12, 24, 0.06);
+  --shadow-lg: 0 16px 40px rgba(57, 4, 11, 0.12);
+  
+  --radius-sm: 0px; /* Force strict Zara/COS zero-radius flat visual style */
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-full: 9999px;
+  
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  --header-height: 80px;
+}
+
+/* Reset and base styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-white);
+  color: var(--color-black);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-wine);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-fast);
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-rich-burgundy);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-burgundy);
+}
+
+/* Layout containers */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.main-content {
+  min-height: calc(100vh - var(--header-height) - 300px);
+  padding-top: var(--header-height);
+}
+
+/* Animations */
+.animate-fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.animate-fade-in {
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Utility classes */
+.section-padding {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.luxury-title {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  position: relative;
+  display: inline-block;
+}
+
+.luxury-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background-color: var(--color-gold);
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--color-gray-700);
+  max-width: 600px;
+  margin: 0 auto 48px auto;
+}
+
+/* Hidden helper class for routing SPA */
+.view-container {
+  display: none;
+}
+
+.view-container.active {
+  display: block;
+  animation: fadeIn var(--transition-normal);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Skeleton loading style */
+.skeleton {
+  background: linear-gradient(90deg, #f5f5f5 25%, #e8e8e8 37%, #f5f5f5 63%);
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.4s ease infinite;
+}
+@keyframes skeleton-loading {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Page transition animation */
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Typography Utility Classes */
+.text-h1 {
+  font-family: var(--font-display);
+  font-size: var(--font-size-3xl);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--color-wine);
+  line-height: 1.2;
+}
+
+.text-h2 {
+  font-family: var(--font-display);
+  font-size: var(--font-size-2xl);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--color-wine);
+  line-height: 1.25;
+}
+
+.text-h3 {
+  font-family: var(--font-display);
+  font-size: var(--font-size-xl);
+  font-weight: 400;
+  color: var(--color-wine);
+}
+
+.text-h4 {
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+  color: var(--color-black);
+}
+
+.text-body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-gray-700);
+}
+
+.text-caption {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-gray-500);
+}
+
+/* Editorial Hero Component */
+.editorial-hero {
+  background-color: var(--color-wine);
+  color: var(--color-cream);
+  padding: var(--space-5xl) 0;
+  text-align: center;
+  position: relative;
+}
+
+.editorial-hero .hero-badge {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: var(--font-size-sm);
+  color: var(--color-rose);
+  font-weight: 600;
+  display: block;
+  margin-bottom: var(--space-md);
+}
+
+.editorial-hero h1 {
+  font-size: var(--font-size-3xl);
+  color: var(--color-white);
+  margin: 0;
+}
+
