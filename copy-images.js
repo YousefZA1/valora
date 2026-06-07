@@ -11,7 +11,7 @@ if (!fs.existsSync(destDir)) {
 
 // Map of generated filenames to project names
 const imageMap = {
-  'media__1780685930475.jpg': 'logo.png',
+  'media__1780793664026.png': 'logo.png',
   'verona_tote_1780687089444.png': 'verona_tote.png',
   'milano_handbag_1780687967791.png': 'milano_handbag.png',
   'classic_beige_crossbody_1780687983123.png': 'classic_beige_crossbody.png',
