@@ -1,5 +1,6 @@
 /* CSS variables for Valora Bags design system */
 :root {
+  color-scheme: light;
   --color-burgundy: #540c18;
   --color-wine: #39040b;
   --color-rich-burgundy: #6f3b42;
